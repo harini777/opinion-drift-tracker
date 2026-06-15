@@ -231,6 +231,3 @@ if __name__ == "__main__":
 
     # ── Step 5: Save for Phase 4 ──
     save_results(df, labels, topic)
-
-    print("Phase 3 complete!")
-    print("Next: Phase 4 will use GenAI to name each cluster automatically.")
