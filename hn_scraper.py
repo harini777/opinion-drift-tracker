@@ -86,7 +86,7 @@ def scrape_hn(topic: str, max_results: int = 200) -> pd.DataFrame:
     records = []
 
     print(f"\n Scraping Hacker News for: '{topic}'...")
-    print(" No API key needed — this is the beauty of open APIs!\n")
+    #print(" No API key needed — this is the beauty of open APIs!\n")
 
     # ── We scrape two types of content ──
     # Stories = the original post/link someone shared
