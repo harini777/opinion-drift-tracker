@@ -140,5 +140,5 @@ if __name__ == "__main__":
         # ── Step 5: Save for Phase 3 ──
         save_embeddings(embeddings, topic)
 
-        print("Phase 2 complete! Your posts are now meaning-vectors.")
-        print("Next: Phase 3 will cluster these into opinion groups.")
+        
+        
