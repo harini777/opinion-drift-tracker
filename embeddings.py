@@ -58,50 +58,34 @@ def generate_embeddings(df: pd.DataFrame, model: SentenceTransformer) -> np.ndar
 # ─────────────────────────────────────────────────────────
 def sanity_check(model: SentenceTransformer):
     """
-    This is the most important step for LEARNING.
-    We test the model on sentences we understand
-    to verify it actually captures semantic similarity.
-
-    Cosine similarity score:
-        1.0  = identical meaning
-        0.7+ = very similar
-        0.3  = loosely related
-        0.0  = completely different
-       -1.0  = opposite meaning
+    User types two sentences and sees how similar they are.
+    Demonstrates that SBERT understands meaning, not just words.
     """
-    print("── Sanity Check: Does SBERT understand meaning? ──────────")
-    print("We'll compare sentence pairs and check similarity scores.\n")
+    print("── Semantic Similarity Checker ───────────────────────────")
+    print("Type two sentences and see how similar they are in meaning.")
+    print("(This uses the same model that will cluster your HN posts)\n")
 
-    sentence_pairs = [
-        # Should be HIGH similarity (same idea, different words)
-        ("AI will take all our jobs",
-         "Artificial intelligence is going to replace human workers"),
+    while True:
+        s1 = input("Sentence 1: ").strip()
+        s2 = input("Sentence 2: ").strip()
 
-        # Should be MEDIUM similarity (related topic)
-        ("Python is the best programming language",
-         "I prefer coding in JavaScript"),
+        e1, e2 = model.encode([s1, s2])
+        score = cosine_similarity(e1.reshape(1, -1), e2.reshape(1, -1))[0][0]
 
-        # Should be LOW similarity (completely different)
-        ("AI will take all our jobs",
-         "I had pasta for dinner last night"),
-    ]
+        if score > 0.6:
+            label = "✅ Very similar meaning"
+        elif score > 0.3:
+            label = "🟡 Loosely related"
+        else:
+            label = "❌ Unrelated"
 
-    # Collect all sentences and embed them together (more efficient)
-    all_sentences = [s for pair in sentence_pairs for s in pair]
-    all_embeddings = model.encode(all_sentences)
+        print(f"\nSimilarity score: {score:.3f}  —  {label}\n")
 
-    for i, (s1, s2) in enumerate(sentence_pairs):
-        # cosine_similarity measures the angle between two vectors
-        # We reshape because sklearn expects 2D arrays
-        e1 = all_embeddings[i * 2].reshape(1, -1)
-        e2 = all_embeddings[i * 2 + 1].reshape(1, -1)
-        score = cosine_similarity(e1, e2)[0][0]
+        again = input("Try another pair? (y/n): ").strip().lower()
+        if again != 'y':
+            break
 
-        print(f"Sentence A: \"{s1}\"")
-        print(f"Sentence B: \"{s2}\"")
-        print(f"Similarity: {score:.3f}  {'✅ HIGH' if score > 0.6 else '🟡 MEDIUM' if score > 0.3 else '❌ LOW'}")
-        print()
-
+    print()
 
 # ─────────────────────────────────────────────────────────
 # SAVE EMBEDDINGS
