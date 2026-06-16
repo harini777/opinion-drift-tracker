@@ -44,7 +44,6 @@ def find_optimal_k(embeddings: np.ndarray, max_k: int = 10):
     print("(Testing K=2 through K=10)\n")
 
     # Normalize embeddings — makes distance calculations more stable
-    # Think of it as putting all vectors on the same scale
     normed = normalize(embeddings)
 
     inertias = []
