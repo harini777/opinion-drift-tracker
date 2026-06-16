@@ -46,7 +46,7 @@ Give this group a short, specific label (4-7 words) that captures the dominant o
 Reply with ONLY the label. No explanation, no punctuation at the end."""
 
     response = client.chat.completions.create(
-        model="lllama-3.3-70b-versatile",
+        model="llama-3.3-70b-versatile",
         messages=[{"role": "user", "content": prompt}],
         max_tokens=30
     )
