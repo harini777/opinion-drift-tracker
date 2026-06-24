@@ -43,7 +43,7 @@ def find_optimal_k(embeddings: np.ndarray, max_k: int = 10):
     print("Running elbow method to find optimal number of clusters...")
     print("(Testing K=2 through K=10)\n")
 
-    # Normalize embeddings — makes distance calculations more stable
+   
     normed = normalize(embeddings)
 
     inertias = []
