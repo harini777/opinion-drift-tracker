@@ -1,0 +1,316 @@
+/* Cyber-Modern / Developer Tech theme (Dark Mode) */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* Variable Definitions */
+:root {
+    --primary: #00F0FF;
+    --purple: #8B5CF6;
+    --lime: #10B981;
+    --pink: #EC4899;
+    --yellow: #FBBF24;
+    --bg-dark: #07080A;
+    --panel-dark: #0F1115;
+    --text-light: #E5E8EB;
+    --text-gray: #8C96A3;
+}
+
+/* Typography Overrides */
+html, body, [class*="css"], .stApp {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+/* Headings: Tech-y Space Grotesk */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-weight: 700 !important;
+    color: var(--text-light) !important;
+    letter-spacing: -0.01em !important;
+    text-transform: uppercase;
+}
+
+/* Console Masthead Layout */
+.masthead-container {
+    border: 1px solid rgba(0, 240, 255, 0.15);
+    background: rgba(15, 17, 21, 0.8);
+    padding: 1.75rem 2rem;
+    margin-bottom: 2.5rem;
+    border-radius: 6px;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), inset 0 0 12px rgba(0, 240, 255, 0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.masthead-container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--purple), var(--primary));
+}
+
+.masthead-title {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 2.8rem !important;
+    font-weight: 800 !important;
+    color: var(--primary) !important; /* Cyber Cyan */
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    line-height: 1.1;
+    margin: 0 0 0.3rem 0 !important;
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+.masthead-subtitle {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.78rem !important;
+    color: var(--white) !important; /* Vivid Violet */
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0 !important;
+    font-weight: 600;
+}
+
+.masthead-meta {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.7rem !important;
+    color: var(--text-gray) !important;
+    margin-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 0.6rem;
+}
+
+/* Sidebar overrides */
+section[data-testid="stSidebar"] {
+    background-color: #0B0C0E !important;
+    border-right: 1px solid rgba(0, 240, 255, 0.08) !important;
+}
+
+section[data-testid="stSidebar"] h1, 
+section[data-testid="stSidebar"] h2, 
+section[data-testid="stSidebar"] h3 {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 1.25rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--primary) !important;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Streamlit Inputs & Sliders styling */
+.stTextInput input {
+    background-color: rgba(15, 17, 21, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: var(--text-light) !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    border-radius: 4px !important;
+    padding: 0.6rem 1rem !important;
+    transition: all 0.25s ease !important;
+}
+
+.stTextInput input:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.15) !important;
+    background-color: rgba(15, 17, 21, 0.8) !important;
+}
+
+/* Buttons Overhaul (Futuristic outline / Solid Primary) */
+.stButton > button {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    border-radius: 4px !important;
+    border: 1px solid rgba(0, 240, 255, 0.2) !important;
+    background-color: rgba(0, 240, 255, 0.03) !important;
+    color: var(--primary) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    padding: 0.6rem 1.8rem !important;
+    width: 100%;
+}
+
+.stButton > button:hover {
+    border-color: var(--primary) !important;
+    background-color: rgba(0, 240, 255, 0.08) !important;
+    color: var(--text-light) !important;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.15) !important;
+    transform: translateY(-1px);
+}
+
+.stButton > button[kind="primary"] {
+    background-color: var(--primary) !important;
+    color: var(--bg-dark) !important;
+    border: 1px solid var(--primary) !important;
+    box-shadow: 0 2px 12px rgba(0, 240, 255, 0.2) !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+    background-color: var(--text-light) !important;
+    border-color: var(--text-light) !important;
+    color: var(--bg-dark) !important;
+    box-shadow: 0 2px 16px rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-1px);
+}
+
+/* Glassmorphic Cyber Cards */
+.editorial-card {
+    background: rgba(15, 17, 21, 0.7) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(0, 240, 255, 0.08) !important;
+    border-left: 3px solid var(--accent, var(--primary)) !important;
+    border-radius: 6px !important;
+    padding: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.editorial-card:hover {
+    border-color: rgba(0, 240, 255, 0.2) !important;
+    box-shadow: 0 4px 20px rgba(0, 240, 255, 0.06), inset 0 0 8px rgba(0, 240, 255, 0.02) !important;
+    transform: translateY(-2px);
+}
+
+/* Color Classes for border accents */
+.card-cyan { --accent: var(--primary); }
+.card-violet { --accent: var(--purple); }
+.card-lime { --accent: var(--lime); }
+.card-pink { --accent: var(--pink); }
+.card-yellow { --accent: var(--yellow); }
+
+/* Report Container Box (Modern green log style) */
+.report-container {
+    background: rgba(16, 185, 129, 0.03) !important;
+    border: 1px solid rgba(16, 185, 129, 0.12) !important;
+    border-left: 4px solid var(--lime) !important;
+    padding: 1.75rem !important;
+    border-radius: 6px !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 1.05rem !important;
+    line-height: 1.7 !important;
+    color: var(--text-light) !important;
+    margin: 2rem 0 !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(16, 185, 129, 0.02) !important;
+}
+
+/* Quote Cards: Code Terminal Extracts */
+.quote-card {
+    background: rgba(255, 255, 255, 0.01) !important;
+    border: 1px solid rgba(255, 255, 255, 0.04) !important;
+    border-left: 2px solid var(--purple) !important;
+    padding: 1rem 1.25rem !important;
+    margin-bottom: 0.75rem !important;
+    border-radius: 4px !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.85rem !important;
+    line-height: 1.45 !important;
+    position: relative;
+}
+
+.quote-text {
+    color: #A3B1C2 !important;
+}
+
+/* Custom example landing blocks */
+.landing-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+    gap: 1rem !important;
+    margin-top: 1.5rem !important;
+}
+
+.example-card-btn {
+    border: 1px solid rgba(0, 240, 255, 0.08) !important;
+    background: rgba(15, 17, 21, 0.6) !important;
+    border-radius: 6px !important;
+    padding: 1.25rem !important;
+    text-align: left !important;
+    cursor: pointer !important;
+    transition: all 0.25s ease !important;
+    height: 100% !important;
+    border-left: 3px solid var(--purple) !important;
+}
+
+.example-card-btn:hover {
+    border-color: var(--primary) !important;
+    border-left-color: var(--primary) !important;
+    background: rgba(0, 240, 255, 0.04) !important;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.08) !important;
+}
+
+.example-card-title {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    color: var(--text-light) !important;
+    margin-bottom: 0.4rem !important;
+    text-transform: uppercase;
+}
+
+.example-card-meta {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.72rem !important;
+    color: var(--text-gray) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+/* Expanders styling */
+.streamlit-expanderHeader {
+    font-family: 'Space Grotesk', sans-serif !important;
+    background-color: rgba(15, 17, 21, 0.5) !important;
+    border: 1px solid rgba(0, 240, 255, 0.08) !important;
+    color: var(--text-light) !important;
+    border-radius: 4px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.streamlit-expanderContent {
+    background-color: rgba(15, 17, 21, 0.3) !important;
+    border: 1px solid rgba(0, 240, 255, 0.04) !important;
+    border-top: none !important;
+    padding: 1.25rem !important;
+}
+
+/* Metrics widgets details */
+div[data-testid="stMetricValue"] {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 1.65rem !important;
+    color: var(--primary) !important;
+}
+
+div[data-testid="stMetricLabel"] {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    color: var(--text-gray) !important;
+}
+
+div[data-testid="stMetric"] {
+    background: rgba(15, 17, 21, 0.6) !important;
+    border: 1px solid rgba(0, 240, 255, 0.06) !important;
+    padding: 1rem !important;
+    border-radius: 6px !important;
+    border-left: 3px solid var(--primary) !important;
+}
+
+/* Custom metric colors alternating */
+div[data-testid="stMetric"]:nth-child(3n+1) { border-left-color: var(--primary) !important; }
+div[data-testid="stMetric"]:nth-child(3n+2) { border-left-color: var(--purple) !important; }
+div[data-testid="stMetric"]:nth-child(3n+3) { border-left-color: var(--lime) !important; }
+
+/* Dividers and rules */
+hr {
+    border-color: rgba(0, 240, 255, 0.08) !important;
+}

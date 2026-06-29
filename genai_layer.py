@@ -1,6 +1,6 @@
 """
 Phase 4 — GenAI Layer
-Uses Groq (free, fast) to label clusters and generate discourse report.
+Uses Groq (fast) to label clusters and generate discourse report.
 """
 
 import os
