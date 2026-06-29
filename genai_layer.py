@@ -38,8 +38,7 @@ def get_cluster_samples(df: pd.DataFrame, cluster_id: int, n: int = 8) -> str:
 def label_cluster(cluster_id: int, samples: str) -> str:
     prompt = f"""You are analyzing online discussion posts grouped by semantic similarity.
 
-Here are {len(samples.splitlines())} posts from one group:
-
+Here are posts from one group:
 {samples}
 
 Give this group a short, specific label (4-7 words) that captures the dominant opinion or narrative.
@@ -67,16 +66,16 @@ def generate_report(topic: str, cluster_labels: dict, df: pd.DataFrame) -> str:
 Topic: "{topic}"
 Total posts analyzed: {total}
 
-Here are the opinion clusters discovered by an ML algorithm:
+Opinion clusters discovered:
 {cluster_summary}
 
 Write a 150-200 word plain-English "State of Discourse" report that:
 - Describes the dominant narratives people hold about this topic
 - Notes which viewpoints are most and least common
-- Highlights any interesting tensions or contradictions between clusters
-- Ends with one sentence on what this suggests about where the conversation is heading
+- Highlights tensions or contradictions between clusters
+- Ends with one sentence on where the conversation is heading
 
-Write in a clear, analytical tone. No bullet points — flowing paragraphs only."""
+Flowing paragraphs only, no bullet points."""
 
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
